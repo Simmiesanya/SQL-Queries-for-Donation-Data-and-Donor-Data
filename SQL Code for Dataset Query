@@ -1,0 +1,79 @@
+#This lines of SQL code is written to answer questions provided in the PDF in which a link will be provided if you wish to download
+#The SQL commands are written in the simplest of forms to aid beginners
+#The questions will be written before the SQL codes in order to carry the readers along properly.
+# A link to the data set will also be provided for self practice
+
+Question 1: How much is the total donation
+SQL Code:
+SELECT SUM(donation) AS total_donation
+FROM donation_data;
+
+Question 2: Whatis the total donation by gender
+SQL Code for male gender:
+SELECT SUM(donation) AS donation_by_Male
+FROM donation_data
+WHERE gender = ‘Male’
+
+SQL code for female gender:
+SELECT SUM(donation) AS donation_by_Female
+FROM donation_data
+WHERE gender = ‘Female’
+
+Question 3: Show the total donation andnumber of donations by gender
+SQL Code:
+SELECT gender, SUM(donation) AS total_donation,COUNT(donation) AS number_of_donation
+FROM donation_data
+GROUP by 1
+ORDER by 1 DESC;
+
+Question 4: Total donation made by frequency of donation
+SQL Code:
+SELECT donor_data.donation_frequency,SUM(donation_data.donation) AS Total_donation
+FROM donation_data
+JOIN donor_data
+ON donation_data.id = donor_data.id
+GROUP by 1
+ORDER by 2 DESC;
+
+Question 5:Total donation and number of donation by job field
+SQL Code:
+SELECT job_field, SUM(donation) AS total_donation,COUNT(donation) AS number_of_donation
+FROM donation_data
+GROUP by 1
+ORDER by 2 DESC;
+
+Question 6: Total donation and number of donations above $200
+SQL Code: SELECT SUM(donation) AS total_donation,COUNT(donation) AS number_of_donation_above_$200
+FROM donation_data
+WHERE donation >200;
+
+Question 7: Total donation and number of donations below $200
+SQL Code:
+SELECT SUM(donation) AS total_donation,COUNT(donation) AS number_of_donation_below_$200
+FROM donation_data
+WHERE donation <200;
+
+Question 8: Which top 10 states contributes the highest donations
+SQL Code:
+SELECT state, SUM(donation) AS total_donation
+FROM donation_data
+GROUP by 1
+ORDER by 2 DESC
+LIMIT 10;
+
+Question 9: Which top 10 states contributes the lowest donations
+SQL Code:
+SELECT state, SUM(donation) AS total_donation
+FROM donation_data
+GROUP by 1
+ORDER by 2
+LIMIT 10;
+
+Question 10: What are the top 10 cars driven by the highest donors
+SQL Code:
+SELECT donation_data.first_name||' ' ||last_name AS donors_name, donation_data.donation AS Total_donation, donor_data.car
+FROM donation_data
+JOIN donor_data
+ON donation_data.id = donor_data.id
+ORDER by 2 DESC
+LIMIT 10;
