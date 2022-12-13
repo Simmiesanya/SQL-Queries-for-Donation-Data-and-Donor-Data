@@ -1,7 +1,9 @@
 #This lines of SQL code is written to answer questions provided in the PDF in which a link will be provided if you wish to download
 #The SQL commands are written in the simplest of forms to aid beginners
 #The questions will be written before the SQL codes in order to carry the readers along properly.
-# A link to the data set will also be provided for self practice
+# Use this link to download the dataset:
+Dataset 1: https://drive.google.com/file/d/1EJ0_4uv2eBbOJQE-qYiemv2r3tnPdR_o/view
+Dataset 2: https://drive.google.com/file/d/1hIwgMYqsG-t97YnwpB-WoznkVDsPH6oq/view
 
 Question 1: How much is the total donation
 SQL Code:
